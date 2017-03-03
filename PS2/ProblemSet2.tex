@@ -1,0 +1,110 @@
+\documentclass[11pt, english]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=20mm,
+ top=30mm,
+ right=20mm
+ }
+
+
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+
+%\lstdefinestyle{myCustomMatlabStyle}{
+%	language=Matlab,
+%	numbers=left,
+%	stepnumber=1,
+%	numbersep=10pt,
+%	tabsize=4,
+%	showspaces=false,
+%	showstringspaces=false
+%}
+
+\usepackage{graphicx} 
+\usepackage{fancyvrb} 
+\usepackage{listings} 
+
+\lstdefinestyle{myCustomMatlabStyle2}{% setup listings 
+	language=R,% set programming language 
+	basicstyle=\small,% basic font style 
+	keywordstyle=\bfseries,% keyword style 
+	commentstyle=\ttfamily\itshape,% comment style 
+	numbers=left,% display line numbers on the left side 
+	numberstyle=\scriptsize,% use small line numbers 
+	numbersep=10pt,% space between line numbers and code 
+	tabsize=3,% sizes of tabs 
+	showstringspaces=false,% do not replace spaces in strings by a certain character 
+	captionpos=b,% positioning of the caption below 
+	breaklines=true,% automatic line breaking 
+	escapeinside={(*}{*)},% escaping to LaTeX 
+	fancyvrb=true,% verbatim code is typset by listings 
+	extendedchars=false,% prohibit extended chars (chars of codes 128--255) 
+	literate={"}{{\texttt{"}}}1{<-}{{$\leftarrow$}}1{<<-}{{$\twoheadleftarrow$}}1 
+	{~}{{$\sim$}}1{<=}{{$\le$}}1{>=}{{$\ge$}}1{!=}{{$\neq$}}1{^}{{$^\wedge$}}1,% item to replace, text, length of chars 
+	alsoletter={.<-},% becomes a letter 
+	alsoother={$},% becomes other 
+	otherkeywords={!=, ~, $, *, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords 
+	deletekeywords={c}% remove keywords 
+}
+
+\newcommand{\grafico}[5]{
+\begin{figure}
+[h!tbp]
+\centering
+\includegraphics[scale=#2, angle=#3]{#1}
+%\captionsetup{width=13cm}
+\caption{#4\label{#5}}
+\end{figure}
+}
+
+\newcommand{\su}[2]{\sum\limits_{#1}^{#2}}
+
+
+\setlength{\parindent}{0pt}
+
+\title{Stochastic Models and Optimization: Problem Set 1}
+\author{Roger Garriga Calleja, José Fernando Moreno Gutiérrez, David Rosenfeld, Katrina Walker}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\textbf{Problem 5. TSP Computational Assignment:}\\\textit{ Visit the website: http://www.math.uwaterloo.ca/tsp/world/countries.html.
+Solve the Traveling Salesman Problem for Uruguay based on the dataset provided. You can use your favorite programming language and solution method for the TSP. Provide a printout of your code with detailed documentation, and compare the optimal solution you obtain to the one available at the website.}\\
+
+The code has been done in R. We used 3 heuristic approaches to find approximate the problem: The nearest neighbor, the greedy algorithm and the simulation anneling. We can see that the best approach (anneling) is above the optimal solution by 12\%, however comparing to the second best it just 1\% below. Furthermore, this 1\% represented an important loose in terms of efficiency. In the following table you can see some important results:
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{rrrrr}
+		\hline
+		& \textbf{optimal} & \textbf{nearest neighbor} & \textbf{greedy} & \textbf{anneling} \\ 
+		\hline
+		\textbf{distance} & 79114.00 & 100056.45 & 89559.29 & 88985.51 \\ 
+		\textbf{distance/optimal} &  & 1.26 & 1.13 & 1.12 \\ 
+		\textbf{run time (min)} &  & 0.19 & 2.55 & 11.69 \\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+\lstset{style=myCustomMatlabStyle2}
+
+\lstinputlisting[language=R]{TSP.R}
+
+\end{document}
