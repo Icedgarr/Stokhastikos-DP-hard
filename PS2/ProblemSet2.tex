@@ -39,6 +39,19 @@
 \usepackage{graphicx} 
 \usepackage{fancyvrb} 
 \usepackage{listings} 
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{inputenc}
 
 \lstdefinestyle{myCustomMatlabStyle2}{% setup listings 
 	language=R,% set programming language 
@@ -78,25 +91,67 @@
 
 \setlength{\parindent}{0pt}
 
-\title{Stochastic Models and Optimization: Problem Set 1}
+\title{Stochastic Models and Optimization: Problem Set 2}
 \author{Roger Garriga Calleja, José Fernando Moreno Gutiérrez, David Rosenfeld, Katrina Walker}
 \date{\today}
 
 \begin{document}
 \maketitle
+\textbf{Problem 1 (Shortest Path using DP):}
+\\
+\begin{align*}
+J_K(i) &= min[a_{ij} + J_{k+1}(j)]\\
+K & = 0, 1,...,N-2\\
+j & = 1,....,N \\
+J_{N-1}(i) & = a_{it}, i = 1, 2,...N \\
+J_{K}(i)& = \textup{optimal cost of getting from i to t in N-k moves} 
+\end{align*}
+\begin{center}
+\begin{figure}[h]\small
+	\centering
+	\includegraphics[width=0.7\linewidth]{../../../../../../Desktop/DP_graph}
+\end{figure}
+\end{center}
+\clearpage
+\textbf{Problem 2 (Shortest Path via Label Correcting Methods):}
+\begin{table}[h]\small
+	\centering
+	\caption{Bellman Ford Algorithm}
+	\label{my-label}
+	\begin{tabular}{llll}
+		\hline
+		Iteration & Exiting Open & Open at end of Iteration & Upper \\ \hline
+		0 & - & 1 & $\infty$ \\ \hline
+		1 & 1 & 1-2 (2), 1-3(1) & $\infty$ \\ \hline
+		2 & 1-2 & 1-3(1), 1-2-4(3) & 2 \\ \hline
+		3 & 1-3 & 1-2-4(3) & 2 \\ \hline
+		4 & 1-2-4 & 0 & 2 \\ \hline
+	\end{tabular}
+	\centering
+	\caption{Dijkstra’s Algorithm}
+	\label{my-label}
+	\begin{tabular}{llll}
+		\hline
+		Iteration & Exiting Open & Open at end of Iteration & Upper \\ \hline
+		0 & - & 1 & $\infty$ \\ \hline
+		1 & 1 & 1-2 (2), 1-3(1) & $\infty$ \\ \hline
+		2 & 1-3 & 1-2(2),  1-3-4(4) & $\infty$ \\ \hline
+		3 & 1-2 & 1-3-4(4), 1-2-4(3) & 2 \\ \hline
+		4 & 1-2-4 & 1-3-4(4) & 2 \\ \hline
+		5 & 1-3-4 & 0 & 2 \\ \hline
+	\end{tabular}
+\end{table}
 
-\textbf{Problem 3. Clustering:} \textit{We have a set of $N$ objects, denoted $1, 2, . . . , N$, which we want to group in clusters that consist of consecutive objects. For each cluster $i, i + 1, . . . , j$, there is an associated cost aij. We want to ﬁnd a grouping of the objects in clusters such that the total cost is minimum. Formulate the problem as a shortest path problem, and write a DP algorithm for its solution.}
+\textbf{Problem 3. Clustering:} \textit{We have a set of $N$ objects, denoted $1, 2, . . . , N$, which we want to group in clusters that consist of consecutive objects. For each cluster $i, i + 1, . . . , j$, there is an associated cost $a_{ij}$. We want to find a grouping of the objects in clusters such that the total cost is minimum. Formulate the problem as a shortest path problem, and write a DP algorithm for its solution.}\\
 
 The primitives of the problem are:\\
 $x_k$ is the last node of a cluster, with $x_k \in S = {0, 1, ..., N}$ for $k = 0, 1, ..., N$\\
 $u_k$ is the decision made at every step k over all objects i such that $i \geq x$.\\
 $a_{ij}$ is the cost of a cluster running from i to j.\\
-\\
 Dynamics:\\
 $x_{k+1} = u_k$ and\\
 $x_0 = 0$\\
-\\
-$u_k \U_k(x) = {i \in S | i\geq x}$ if $x \neq N$ for $k = 0, 1, ..., N-1$ and\\
+$u_k \in U_k(x) = {i \in S | i\geq x}$ if $x \neq N$ for $k = 0, 1, ..., N-1$ and\\
 $u_k \in U_k(x) = {N}$ if $x= N$\\
 \\
 $g_k(x, u) = a_{x+1,u}$ if $x \neq N$ for $k = 0, 1, ..., N-1$, and \\
@@ -106,7 +161,13 @@ We then set up the DP algorithm as follows:\\
 $J_N(N) = 0$\\
 $J_k(i) = \displaystyle \min_{j \in S|j \geq i}[a_{i+1,j} + J_{k+1}(j)]$ if $x \neq N$ and for $k = 0, 1, ..., N-1$\\
 $J_k(i) = 0$ if $i = N$\\
-Return $J_0(0)$ as the lowest cost.
+Return $J_0(0)$ as the lowest cost.\\
+
+
+\textbf{Problem 4 (Path Bottleneck Problem):}\textit{ Consider the framework of the shortest path problem. For any path $P$, define the \textbf{bottleneck} arc of $P$ as an arc that has maximum length over all arcs of $P$. We wish to find a path whose length of bottleneck arc is minimum, among all paths connecting the origin node to the destination node. Develop and justify an analog of the label correcting algorithm that solves this problem. }
+
+
+
 
 \textbf{Problem 5. TSP Computational Assignment:}\\\textit{ Visit the website: http://www.math.uwaterloo.ca/tsp/world/countries.html.
 Solve the Traveling Salesman Problem for Uruguay based on the dataset provided. You can use your favorite programming language and solution method for the TSP. Provide a printout of your code with detailed documentation, and compare the optimal solution you obtain to the one available at the website.}\\
