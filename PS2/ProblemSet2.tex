@@ -109,7 +109,7 @@ J_{K}(i)& = \textup{optimal cost of getting from i to t in N-k moves}
 \begin{center}
 \begin{figure}[h]\small
 	\centering
-	\includegraphics[width=0.7\linewidth]{../../../../../../Desktop/DP_graph}
+	\includegraphics[width=0.7\linewidth]{DP_graph}
 \end{figure}
 \end{center}
 \clearpage
@@ -165,6 +165,25 @@ Return $J_0(0)$ as the lowest cost.\\
 
 
 \textbf{Problem 4 (Path Bottleneck Problem):}\textit{ Consider the framework of the shortest path problem. For any path $P$, define the \textbf{bottleneck} arc of $P$ as an arc that has maximum length over all arcs of $P$. We wish to find a path whose length of bottleneck arc is minimum, among all paths connecting the origin node to the destination node. Develop and justify an analog of the label correcting algorithm that solves this problem. }
+
+
+The formulation of the Path Bottleneck problem can be done analogously to the label correcting method just changing the minimum length of the path from $s$ to $i$ to the minimum bottleneck from $s$ to $i$.\\
+
+\underline{Formulation:}\\
+s: origin.\\
+t: destination.\\
+$\alpha_{ij}$: length i-j.\\
+$\left\{\begin{array}{ll}
+b_i: & \text{length of the minimum bottleneck arc from }s\text{ to }i.\\
+p_i: & \text{parent of node }i.
+\end{array}\right.$\\
+Open: set of nodes whose labels may need correction.\\
+Upper: length of the minimum bottleneck from $s$ to $t$.\\ 
+
+\underline{Initialization:}
+$s=0$, $b_i=\infty$, $\forall i\neq s$. Open=$\{s\}$, Upper=$\infty$.\\
+
+The algorithm can also be defined analogously but in this case instead of comparing the paths from $s$ to $j$, the new path and the Upper, we will compare their bottlenecks. That is, we will find the new possible bottleneck of the path from $s$ to $j$ going through $i$ and we will compare it with the best bottleneck we have until now from $s$ to $j$ and from $s$ to $t$ in a similar way we did for the label correcting algorithm. 
 
 
 
