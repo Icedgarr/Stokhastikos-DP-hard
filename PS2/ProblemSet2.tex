@@ -85,6 +85,29 @@
 \begin{document}
 \maketitle
 
+\textbf{Problem 3. Clustering:} \textit{We have a set of $N$ objects, denoted $1, 2, . . . , N$, which we want to group in clusters that consist of consecutive objects. For each cluster $i, i + 1, . . . , j$, there is an associated cost aij. We want to ﬁnd a grouping of the objects in clusters such that the total cost is minimum. Formulate the problem as a shortest path problem, and write a DP algorithm for its solution.}
+
+The primitives of the problem are:\\
+$x_k$ is the last node of a cluster, with $x_k \in S = {0, 1, ..., N}$ for $k = 0, 1, ..., N$\\
+$u_k$ is the decision made at every step k over all objects i such that $i \geq x$.\\
+$a_{ij}$ is the cost of a cluster running from i to j.\\
+\\
+Dynamics:\\
+$x_{k+1} = u_k$ and\\
+$x_0 = 0$\\
+\\
+$u_k \U_k(x) = {i \in S | i\geq x}$ if $x \neq N$ for $k = 0, 1, ..., N-1$ and\\
+$u_k \in U_k(x) = {N}$ if $x= N$\\
+\\
+$g_k(x, u) = a_{x+1,u}$ if $x \neq N$ for $k = 0, 1, ..., N-1$, and \\
+$g_k(x, u) = 0$ if $x = N$\\
+\\
+We then set up the DP algorithm as follows:\\
+$J_N(N) = 0$\\
+$J_k(i) = \displaystyle \min_{j \in S|j \geq i}[a_{i+1,j} + J_{k+1}(j)]$ if $x \neq N$ and for $k = 0, 1, ..., N-1$\\
+$J_k(i) = 0$ if $i = N$\\
+Return $J_0(0)$ as the lowest cost.
+
 \textbf{Problem 5. TSP Computational Assignment:}\\\textit{ Visit the website: http://www.math.uwaterloo.ca/tsp/world/countries.html.
 Solve the Traveling Salesman Problem for Uruguay based on the dataset provided. You can use your favorite programming language and solution method for the TSP. Provide a printout of your code with detailed documentation, and compare the optimal solution you obtain to the one available at the website.}\\
 
