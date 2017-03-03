@@ -151,8 +151,7 @@ $$ \dfrac{J_k(x_k)}{\alpha^k} = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left
 Now if we define $V_k = \dfrac{J_k(x_k)}{\alpha^k}$, which also applies for $V_{k+1}$ and $V_N$. Thus, our DP algorithm is given by
 
 $$V_N (x_N) = g_N (x_N)$$
-$$V_k(x_k) = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{g_k\left(x_k,u_k,w_k\right) + \alpha V_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right) \right\}$$
-
+$$V_k(x_k) = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{g_k\left(x_k,u_k,w_k\right) + \alpha V_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right) \right\}$$\\
 
 
 \textbf{Problem 3 (Multiplicative cost):}\textit{ In the framework of the basic problem, consider the case where the cost has the multiplicative form}
@@ -183,8 +182,28 @@ Since $g_k(x_k,u_k,w_k)$ only depends on period $k$ we can put it out of the exp
  
 since $J_{k+1}(x_{k+1})=J_{k+1}^*(x_{k+1})=\underset{u_{k+1},\dots,u_{N-1}}{\min}\mathbb{E}_{w_{k+1},\dots,w_{N-1}}\left\{\prod\limits_{i=k+1}^{N-1}\left(g_i(x_i,u_i,w_i)\right)g_N(x_N)\right\}$ by hypothesis of induction,
 $$J_k^*(x_k)=\underset{u_k}{\text{min }}\mathbb{E}_{w_k}\left\{g_k(x_k,u_k,w_k)J_{k+1}(x_{k+1})\right\}.$$
-Q.E.D.
+Q.E.D.\\
 
+\textbf{Problem 4 - Knapsack Problem:} \textit{Assume that we have a vessel whose maximum weight capacity is $z$ and whose ca go is to consist of different quantities of $N$ different items. Let $v_i$ denote the value of the $i^{th}$ type of item, $w_i$ the weight of the $i^{th}$ type of item, and $x_i$ the number of items of type $i$ that are loaded in the vessel. The problem is to find the most valuable cargo, i.e., to maximize $\sum_{i = 1}^N x_i v_i$ subject to the constraint $\sum_{i = 1}^N x_i v_i \leq z$ and $x_i \in \mathbb{N}$. Reformulate the problem within the DP framework.}\\
+
+We can define the primitives as follow:\\
+$x_k$: the total weight on the vessel before adding the $k^{th}$ item.\\
+$u_k$: the quantity of item k added to the vessel.\\
+$w_k$: the weight of a unit of item k.\\
+$z$: the maximum weight capacity of the vessel.\\
+$v_k$: the value of one unit of item k.
+\\
+The dynamics are as follows:\\
+$x_{k+1} = x_k + u_k.w_k$\\
+$U_k = {u_k: x_k + u_k.w_k \leq z}$\\
+$x_i \in N$\\
+$g_k(x_k, u_k) = u_k.v_k$
+$g_N(x_N) =[\frac{z - x_N}{w_n}].v_N$ (where $[\frac{z - x_N}{w_n}] \in N$)\\
+\\
+We may now set up our DP algorithm:\\
+$J_N(x_N) = [\frac{z - x_N}{w_n}].v_N$
+$J_k(x_k) = max{g_k(x_k, u_k) + J_{k+1}(x_{k+1}}$\\
+	$= max{u_{N-1}.v_{N-1} + J_{k+1}(x_{k+1}}$\\
 
 \textbf{Problem 5 (Traveling Repairman Problem):}\textit{ A repairman must service N sites, which are located along a line and are sequentially numbered 1, 2, . . . , N. The repairman starts at a given site s with 1 $<$ s $<$ N, and is constrained to service only sites that are adjacent to the ones serviced so far, i.e. if he has already serviced sites i, i+1,...j, then he may service only site i-1 (assuming 1 \textless i) or that site j+1 (assuming j \textless N). There is a waiting cost of $c_i$ for each time period that site i has remained unserviced and there is a travel cost $t_{ij}$ for servicing site j right after site i. Reformulate the problem within the DP framework.}\\
 \\
