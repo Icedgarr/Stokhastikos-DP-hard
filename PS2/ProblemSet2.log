@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.1)  3 MAR 2017 11:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.1)  3 MAR 2017 11:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1019,14 +1019,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--165
 
  []
 
+[2
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
-[2
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 172--182
 
  []
@@ -1037,11 +1037,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--185
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
+
+ []
+
+[3] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -1061,7 +1086,6 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
- [3]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
@@ -1095,11 +1119,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  6959 strings out of 493029
  90987 string characters out of 6136234
- 373662 words of memory out of 5000000
+ 379988 words of memory out of 5000000
  10336 multiletter control sequences out of 15000+600000
  22221 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,47p,486b,1579s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,47p,712b,1579s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/t
@@ -1116,7 +1140,7 @@ m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb>
-Output written on ProblemSet2.pdf (8 pages, 280351 bytes).
+Output written on ProblemSet2.pdf (8 pages, 282242 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  71 compressed objects within 1 object stream

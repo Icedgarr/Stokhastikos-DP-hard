@@ -125,7 +125,7 @@ J_{K}(i)& = \textup{optimal cost of getting from i to t in N-k moves}
 		1 & 1 & 1-2 (2), 1-3(1) & $\infty$ \\ \hline
 		2 & 1-2 & 1-3(1), 1-2-4(3) & 2 \\ \hline
 		3 & 1-3 & 1-2-4(3) & 2 \\ \hline
-		4 & 1-2-4 & 0 & 2 \\ \hline
+		4 & 1-2-4 & $\emptyset$ & 2 \\ \hline
 	\end{tabular}
 	\centering
 	\caption{Dijkstra’s Algorithm}
@@ -138,7 +138,7 @@ J_{K}(i)& = \textup{optimal cost of getting from i to t in N-k moves}
 		2 & 1-3 & 1-2(2),  1-3-4(4) & $\infty$ \\ \hline
 		3 & 1-2 & 1-3-4(4), 1-2-4(3) & 2 \\ \hline
 		4 & 1-2-4 & 1-3-4(4) & 2 \\ \hline
-		5 & 1-3-4 & 0 & 2 \\ \hline
+		5 & 1-3-4 & $\emptyset$ & 2 \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -162,7 +162,7 @@ $J_N(N) = 0$\\
 $J_k(i) = \displaystyle \min_{j \in S|j \geq i}[a_{i+1,j} + J_{k+1}(j)]$ if $x \neq N$ and for $k = 0, 1, ..., N-1$\\
 $J_k(i) = 0$ if $i = N$\\
 Return $J_0(0)$ as the lowest cost.\\
-
+\newpage
 
 \textbf{Problem 4 (Path Bottleneck Problem):}\textit{ Consider the framework of the shortest path problem. For any path $P$, define the \textbf{bottleneck} arc of $P$ as an arc that has maximum length over all arcs of $P$. We wish to find a path whose length of bottleneck arc is minimum, among all paths connecting the origin node to the destination node. Develop and justify an analog of the label correcting algorithm that solves this problem. }
 
@@ -183,8 +183,22 @@ Upper: length of the minimum bottleneck from $s$ to $t$.\\
 \underline{Initialization:}
 $s=0$, $b_i=\infty$, $\forall i\neq s$. Open=$\{s\}$, Upper=$\infty$.\\
 
-The algorithm can also be defined analogously but in this case instead of comparing the paths from $s$ to $j$, the new path and the Upper, we will compare their bottlenecks. That is, we will find the new possible bottleneck of the path from $s$ to $j$ going through $i$ and we will compare it with the best bottleneck we have until now from $s$ to $j$ and from $s$ to $t$ in a similar way we did for the label correcting algorithm. 
+The algorithm can also be defined analogously but in this case instead of comparing the paths from $s$ to $j$, the new path and the Upper, we will compare their bottlenecks. That is, we will find the new possible bottleneck of the path from $s$ to $j$ going through $i$, and then we will compare it with the best bottleneck we have until now from $s$ to $j$ and from $s$ to $t$ in a similar way we did for the label correcting algorithm. Observe that the bottleneck for the new possible best path that goes from $s$ to $j$ passing through $i$ is now $\max\{b_i,\alpha_{ij}\}$, where $b_i$ is the minimum bottleneck we have found from $s$ to $i$ and $\alpha_{ij}$ the length $i-j$.  \\
 
+\underline{Algorithm:}\\
+1) Choose $i\in$Open and remove it. \\
+$\forall j$ child of $i$ execute 2)\\
+
+2) If $\max\{b_i,\alpha_{ij}\}<\min\{b_j,\text{Upper}\}$ then, \\
+$b_j=\max\{b_i,\alpha_{ij}\}$\\
+$p_j=i$\\
+If $j\neq t$, put $j$ in Open.\\
+If $j=t$, Upper=$\max\{b_i,\alpha_{ij}\}$.\\
+
+3) If Open=$\emptyset$ terminate,\\ 
+else, go to 1).\\
+
+By using this algorithm we will find at each step 2) a new possibly best bottleneck from $s$ to $j$, where $j$ is a child of $i$. In case this new bottleneck is not better than the best bottleneck of the paths that go from $s$ to $t$ until now, we discard the path. That makes sense because as we advance through a path we can only find bottlenecks that are greater than the one we have until now (it is always the maximum). So at the end we will have found the best one by pruning and discarding all the others just as we have by the label correcting algorithm we studied.\\
 
 
 
