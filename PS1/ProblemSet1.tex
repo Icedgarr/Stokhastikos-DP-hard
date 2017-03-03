@@ -121,6 +121,37 @@ J_1(0)&=\underset{u_1\in\{F,R\}}{\max}\{\mathbb{E}[100w_1-40+J_2(w_1)|u_1=F],\ma
 \end{align}
 So, $u_1(x_1=1)=M$ and $u_1(x_1=0)=F$. Since the machine is new at the start, during the first week it is guaranteed to work, so $J_0(x_0)=\max\mathbb{E}[100w_0+J_1(w_0)]=100+J_1(1)=100+104=204$.
 
+\textbf{Problem 2 (Discounted cost):}\textit{ In the framework of the basic problem, consider the case where the cost is of the form}
+$$\mathbb{E}_{\{w_k\}}\left\{\alpha^N g_N(x_N) +  \sum_{k = 0}^{N - 1} \alpha^k g_k\left(x_k,u_k,w_k\right) \right\}$$
+
+\textit{Where $\alpha \in (0,1)$ is a discount factor. Develop a DP-like algorithm for this problem}\\
+
+\underline{Primitives:}\\
+State: The state of the system at the beginning of the period $k$ is $x_k$.\\
+Control: The control or decision at period $k$ is $u_k$.\\
+Uncertainty: The uncertainty at period $k$ is $w_k$.\\
+Dynamics: The dynamics of the problem at period $k$ is $x_{k+1}=f_k(x_k,u_k,w_k)$, for a certain $f_k$.\\
+Cost: The cost has the form
+
+$$\mathbb{E}_{\{w_k\}}\left\{\alpha^N g_N(x_N) +  \sum_{k = 0}^{N - 1} \alpha^k g_k\left(x_k,u_k,w_k\right) \right\}$$
+
+\underline{DP algorithm:} To formulate the DP algorithm we can define
+
+$$J_N (x_N) = \alpha g_N (x_N)$$
+$$J_k(x_k) = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{\alpha^k g_k\left(x_k,u_k,w_k\right) + J_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right) \right\}$$
+
+We can divide both sides of the last equation by $\alpha^k$. Then
+
+$$ \dfrac{J_k(x_k)}{\alpha^k} = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{g_k\left(x_k,u_k,w_k\right) + \dfrac{J_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right)}{\alpha^k}  \right\}$$
+
+Note than $\alpha^k = \alpha^{-1} \alpha^{k+1}$. Therefore
+
+$$ \dfrac{J_k(x_k)}{\alpha^k} = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{g_k\left(x_k,u_k,w_k\right) + \alpha \dfrac{J_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right)}{\alpha^{k+1}}  \right\}$$
+
+Now if we define $V_k = \dfrac{J_k(x_k)}{\alpha^k}$, which also applies for $V_{k+1}$ and $V_N$. Thus, our DP algorithm is given by
+
+$$V_N (x_N) = g_N (x_N)$$
+$$V_k(x_k) = \min_{u_k \in U_k(x_k)}\mathbb{E}_{\{w_k\}}\left\{g_k\left(x_k,u_k,w_k\right) + \alpha V_{k + 1} \left(f\left(x_k,u_k,w_k\right)\right) \right\}$$
 
 
 
