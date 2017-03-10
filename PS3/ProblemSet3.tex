@@ -91,10 +91,11 @@
 \setlength{\parindent}{0pt}
 \begin{document}
 \title{Stochastic Models and Optimization: Problem Set 3}
-\author{Roger Garriga Calleja, Jos� Fernando Moreno Guti�rrez, David Rosenfeld, Katrina Walker}
+\author{Roger Garriga Calleja, José Fernando Moreno Gutiérrez, David Rosenfeld, Katrina Walker}
 \date{\today}
-\section{Introduction}
-\section{Q2. Inventory control with forecasts}
+\begin{document}
+\maketitle
+\section*{Q1. Inventory control with forecasts}
 \textbf{(a): Single period}\\
 \textbf{Primitives}
 $D$: Demand, which is a random variable \\ $D =     \left\{ \begin{array}{rcl}
@@ -143,7 +144,13 @@ $G_k(z_k) = cz_k + bqE[max\{0, w_k - z_k\} | \xi = L] + b(1 -q)E[max\{0, w_k - z
 \\
 $G_k(z_k)$ is a convex function for all k, and there will be a solution $S_k$ which minimises $G(z)$ such that the optimal ordering policy becomes:\\
 $u_k^* = \mu_k^* = S_k - x_k$ if $S_k > x_k$, and 0 otherwise.
+<<<<<<< HEAD
 \section{Q3. Inventory Pooling}
+=======
+
+
+\section*{Q2. Inventory Pooling}
+>>>>>>> 1e2a1b310ef173326ffde55521f5e49c104e2994
 \textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
 inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
 \begin{align*} 
@@ -171,7 +178,84 @@ G(Q^*_P) & =  [hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \
 \end{align*} 
 Q.E.D.\\
 
-\textbf{Problem 4 (An Investment Problem): An investor has the opportunity to make $N$ sequential investments: at time $k$ he may invest any amount $u_k\geq 0$ that does not exceed his current wealth $x_k$ (does not exceed his current wealth, $x_0$, plus his gain or minus his loss thus far). He wins his investment back and as much more with probability $p$, where $\frac{1}{2}<p<1$, and he loses his investment with probability $(1-p)$. Find the optimal investment strategy.\\}
+\section*{Q3. Asset Selling with Maintenance Cost}
+
+\textbf{Primitives:}\\
+
+$w_k$: Offer received in the period k.\\
+
+$x_k$: Highest offer received up to period k.\\
+
+$u_k=\left\{\begin{array}{ll}
+1 & \text{if accept the offer }x_k\\
+0 & \text{otherwise}
+\end{array}\right.$\\
+
+$c$: Maintenance cost.\\
+
+\textbf{Dynamics:}\\
+
+$x_{k + 1}=\left\{\begin{array}{ll}
+\max\{w_k, x_k\} & \text{if } u_k = 0\\
+T & \text{if } x_k = T \text{ or } u_k = 1
+\end{array}\right.$\\
+
+\textbf{Reward:}\\
+
+$G_N(x_N) = \left\{\begin{array}{ll}
+0 & \text{if } x_N = T\\
+x_N & \text{otherwise}
+\end{array}\right.$\\
+
+$G_k(x_k)=\left\{\begin{array}{ll}
+-c & \text{if } u_k = 0 \text{ and } x_k  \neq T\\
+x_k & \text{if } u_k = 1 \\
+0 & \text{if } x_k = T
+\end{array}\right.$\\
+
+\textbf{DP-Algorithm:}\\
+
+\begin{equation*}
+J_N(x_N) = \left\{\begin{array}{ll}
+0 & \text{if } x_N = T\\
+x_N & \text{otherwise}
+\end{array}\right.
+\end{equation*}
+
+\begin{align*}
+J_k(x_k) =& \left\{\begin{array}{ll}
+\max\limits_{u_k \in \mu_k} \left\{x_k, \mathbb{E}_{w_k} \left[J_{k+1} (x_{k+1})\right] - c \right\} & \text{if } x_k \neq T\\
+0 \text{ otherwise} & 
+\end{array}\right.  \\
+= & \left\{\begin{array}{ll}
+\max\limits_{u_k \in \mu_k} \left\{x_k, \mathbb{E}_{w_k} \left[J_{k+1} (\max\{w_k, x_k\})\right] - c \right\} & \text{if } x_k \neq T\\
+0 \text{ otherwise} & 
+\end{array}\right.
+\end{align*}\\
+
+Where $\mathbb{E}_{w_k} \left[J_{k+1} (\max\{w_k, x_k\})\right] = \su{j = 1}{n} p_j\max (x, w_j)$ \\
+
+Thus the optimal policy is given by
+
+\begin{equation*}
+\mu^*(x) = \left\{\begin{array}{ll}
+1 & \text{if } x \geq  \su{j = 1}{n} p_j\max (x, w_j) - c\\
+0 & \text{otherwise}
+\end{array}\right.
+\end{equation*}
+
+This optimal policy implies that the actual reward should be greater or equal to the expected reward if we don't accept the maximum offer up to $k$. Thus we can define the optimal policy as follows:
+
+\begin{equation*}
+\mu^*(x) = \left\{\begin{array}{ll}
+1 & \text{if } c \geq  \su{j = 1}{n} p_j\max (x, w_j) - x\\
+0 & \text{otherwise}
+\end{array}\right.
+\end{equation*}
+
+where $h(x) = \su{j = 1}{n} p_j\max (x, w_j) - x$ is a nonincreasing function. Therefore, we obtain that if the cost is greater than the difference between the expected value of future offers and the maximum offer we have received, we decide to sell. Thus, we will have less incentives to sell as time goes by. Each period it is more probable that our maintenance cost will will be equal to our reward improvement.\\
+
+\section*{Q4 An Investment Problem}
 
 \underline{Primitives:\\} 
 
@@ -203,23 +287,133 @@ $g_k(x_k,u_k,w_k)=0$. \\
 To simplify th
 $J_N(x_N)=\log(x_N)$. \\
 $J_k(x_k)=\underset{u_k\in \mathcal{U}_k}{\max}\mathbb{E}_{w_k}\left[J_{k+1}(x_k-u_k+w_k)\right]$.\\
-We will first prove that $J_k(x_k)=A_k+\ln(x_k)$ by induction.
+We will first prove that $J_k(x_k)=A_k+\log(x_k)$ by induction (where $\log$ is the logarithm in base $e$).
 
 \begin{align}
-	J_{N-1}(x_{N-1})&=\underset{u_{n-1}}{\max\ }\mathbb{E}_{w_{N-1}}\left[\log(x_{N-1}-u_{N-1}+w_{N-1})\right]=\\
-	&=\underset{u_{N-1}}{\max\ }\mathbb{E}_{w_{N-1}}[\log(x_{N-1}-u_{N-1}+w_{N-1})]=\\
-	&=\underset{u_{N-1}}{\max\ }\left[p\log(x_{N-1}+u_{N-1})+(1-p)\log(x_{N-1}-u_{N-1})\right].
+J_{N-1}(x_{N-1})&=\underset{u_{n-1}}{\max\ }\mathbb{E}_{w_{N-1}}\left[\log(x_{N-1}-u_{N-1}+w_{N-1})\right]=\\
+&=\underset{u_{N-1}}{\max\ }\mathbb{E}_{w_{N-1}}[\log(x_{N-1}-u_{N-1}+w_{N-1})]=\\
+&=\underset{u_{N-1}}{\max\ }\left[p\log(x_{N-1}+u_{N-1})+(1-p)\log(x_{N-1}-u_{N-1})\right].
 \end{align}
 Now, we derive and apply FOC to find the maximum,
 \begin{align}
-	\frac{p}{x_{N-1}+u_{N-1}}-\frac{1-p}{x_{N-1}-u_{N-1}}=0
+\frac{p}{x_{N-1}+u_{N-1}}-\frac{1-p}{x_{N-1}-u_{N-1}}=0
 \end{align}
 \begin{align}
-	px_{N-1}-pu_{N-1}=x_{N-1}+u_{N-1}-px_{N-1}-pu_{N-1},
+px_{N-1}-pu_{N-1}^*=x_{N-1}+u_{N-1}^*-px_{N-1}-pu_{N-1}^*,
 \end{align}
-solving we obtain $u_{N-1}=(2p-1)x_{N-1}$. Plugging into the expression of $J_{N-1}(x_{N-1})$
+solving we obtain $u_{N-1}^*=(2p-1)x_{N-1}$, which makes sense, because $2p-1$ is between 0 and 1 for $\frac{1}{2}<p<1$. Plugging into the expression of $J_{N-1}(x_{N-1})$
 \begin{align}
-	J_{N-1}(x_{N-1})&=
+J_{N-1}(x_{N-1})&=p\log(x_{N-1}+(2p-1)x_{N-1})+(1-p)\log(x_{N-1}-(2p-1)x_{N-1})=\\
+&=p\log(2px_{N-1})+(1-p)\log(2(1-p)x_{N-1})=\\
+&=p\log(2p)+p\log(x_{N-1})+(1-p)\log(2(1-p))+(1-p)\log(x_{N-1}=\\
+&=p\log(2p)+(1-p)\log(2(1-p))+\log(x_{N-1}).
 \end{align}
+So, for $N-1$ we have $A_{N-1}=p\log(2p)+(1-p)\log(2(1-p))$. Now, suppose $J_{k+1}(x_{k1})=A_{k+1}+\log(x_{k+1})$ let's prove it for $k$:
+\begin{align}
+J_{k}(x_{k})&=\underset{u_{k}}{\max\ }\mathbb{E}_{w_{k}}\left[A_{k+1}+\log(x_{k+1})\right]=\\
+&=\underset{u_{k}}{\max\ }\mathbb{E}_{w_{k}}\left[A_{k+1}+\log(x_{k}-u_{k}+w_{k})\right]=\\
+&=\underset{u_{k}}{\max\ }\left[A_{k+1}+ p\log(x_{k}+u_{k})+(1-p)\log(x_{k}-u_{k})\right].
+\end{align} 
+Applying first order conditions we would obtain the same equation as before ($A_{k+1}$ does not depend on $u_k$), so $u_k=(2p-1)x_k$. Plugging in the $J_k(x_k)$ we obtain the same way as before
+\begin{align}
+J_{k}(x_{k})&=A_{k+1}+p\log(2p)+(1-p)\log(2(1-p))+\log(x_{k}).
+\end{align}
+So, $J_k(x_k)=A_k+\log(x_k)$, where $A_k=A_{k+1}+p\log(2p)+(1-p)\log(2(1-p))$. So, the policy will be to invest $(2p-1)x_k$ of wealth each period $k$.
+
+\section*{Q5 A Scheduling Problem}
+
+\textbf{(a)}\\
+
+Let $i$ and $j$ be the $k$th and $(k + 1)$st questions
+in an optimal ordered list:
+
+\begin{equation*}
+L = (i_0, \cdots , i_{k-1}, i, j, i_{k+2}, \cdots, i_{N-1})
+\end{equation*}
+
+Also consider the list with $i$ and $j$ interchanged:
+
+\begin{equation*}
+L' = (i_0, \cdots , i_{k-1}, j, i, i_{k+2}, \cdots, i_{N-1})
+\end{equation*}
+
+Then define $R$ as the reward. Thus
+
+\begin{align*}
+\mathbb{E}(R(L)) =& \mathbb{E} \left[R(i_0, \cdots, i_{k-1})\right] + p_{i_0} \cdots p_{i_{k-1}} \left(p_i R_i - (1-p_i)F_i + p_ip_jR_j - p_i(1-p_j)F_j\right)\\
+&+ p_{i_0} \cdots p_{i_{k-1}} p_i p_j \mathbb{E} \left[R(i_{k+2}, \cdots, i_{N-1})\right] \\
+\mathbb{E}(R(L')) =& \mathbb{E} \left[R(i_0, \cdots, i_{k-1})\right] + p_{i_0} \cdots p_{i_{k-1}} \left(p_j R_j - (1-p_j)F_j + p_jp_iR_i - p_j(1-p_i)F_i\right)\\
+&+ p_{i_0} \cdots p_{i_{k-1}} p_j p_i \mathbb{E} \left[R(i_{k+2}, \cdots, i_{N-1})\right]
+\end{align*}
+
+$L$ optimal implies
+
+\begin{align*}
+\mathbb{E}(R(L)) &\geq \mathbb{E}(R(L'))\\
+p_i R_i - (1-p_i)F_i + p_ip_jR_j - p_i(1-p_j)F_j &\geq p_j R_j - (1-p_j)F_j + p_jp_iR_i - p_j(1-p_i)F_i \\
+p_i R_i - (1-p_i)F_i - p_jp_iR_i + p_j(1-p_i)F_i &\geq p_j R_j - (1-p_j)F_j - p_ip_jR_j + p_i(1-p_j)F_j\\
+R_i (p_i - p_jp_i) - F_i(1-p_i -p_j(1-p_i)) &\geq R_j(p_j - p_ip_j) - F_j(1-p_j-p_i(1-p_j)) \\
+R_i p_i(1-p_j) - F_i(1-p_i)(1-p_j) &\geq R_jp_j(1-p_i) - F_j(1-p_j)(1-p_i) \\
+(1-p_j)(R_ip_i - F_i(1-p_i)) &\geq (1-p_i)(R_jp_j - F_j(1-p_j)) \\
+\dfrac{R_ip_i - F_i(1-p_i)}{1-p_i} &\geq \dfrac{R_jp_j - F_j(1-p_j)}{1-p_j} \hspace{1cm}\text{ Q.E.D}
+\end{align*}
+
+\textbf{(b)}\\
+
+\textbf{Primitives:}\\
+
+$x_k$: Reward up to period k.\\
+
+$u_k=\left\{\begin{array}{ll}
+1 & \text{to answer}\\
+0 & \text{otherwise}
+\end{array}\right.$\\
+
+$w_k=\left\{\begin{array}{ll}
+Rk & \text{w.p } p_k\\
+-F_k & \text{w.p } (1-p_k)
+\end{array}\right.$\\
+
+\textbf{Dynamics:}\\
+
+$x_{k + 1}=\left\{\begin{array}{ll}
+x_k + u_k w_k & \text{if } x_k \neq R\\
+T & \text{if } x_k = T \text{ or } u_k = 0
+\end{array}\right.$\\
+
+\textbf{Reward:}\\
+
+$G_N(x_N) = 0$\\
+
+$G_k(x_k)=\left\{\begin{array}{ll}
+w_k & \text{if } u_k = 1 \text{ and } x_k  \neq T\\
+0 & \text{otherwise }
+\end{array}\right.$\\
+
+\textbf{DP-Algorithm:}\\
+
+\begin{equation*}
+J_N(x_N) = 0
+\end{equation*}
+
+\begin{align*}
+J_k(x_k) =& \max\limits_{u_k} \mathbb{E}_{w_k} \left[g(x_k, u_k, w_k) + J_{k+1}(x_{k+1})\right] \\
+= & \max\left\{w_k + J_{k+1}(x_k + w_k), 0 \right\}
+\end{align*}\\
+
+So we have that
+\begin{align*}
+J_{N-1}(x_{N-1}) =& \max\left\{\mathbb{E}_{w_{N-1}} \left[w_{N-1}\right], 0 \right\} \\
+= & \max\left\{R_{N-1} p_{N-1} - F_{N-1} (1 - p_{N-1}), 0 \right\}
+\end{align*}\\
+
+Then the win and lose does not depend on $x_{N-1}$. It will depend on the optimal list $L$. Thus
+
+\begin{equation*}
+J_{k}(x_k) = \max\left\{R_{k} p_{k} - F_{k} (1 - p_{k}) + J_{k+1} (L), 0 \right\}
+\end{equation*}
+
+Therefore, $R_{k} p_{k} - F_{k} (1 - p_{k}) + J_{k+1} (L)$ does not depend on $x_k$. It depends in fact on $u_k$ which is the decision of continuing to playing or not. So the optimal policy since the beginning is to look if $R_{k} p_{k} - F_{k} (1 - p_{k}) + J_{k+1} (L) > 0$.
+
 
 \end{document}
