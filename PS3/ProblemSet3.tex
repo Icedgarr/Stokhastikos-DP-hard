@@ -88,28 +88,12 @@
 
 \newcommand{\su}[2]{\sum\limits_{#1}^{#2}}
 
-
 \setlength{\parindent}{0pt}
-
+\begin{document}
 \title{Stochastic Models and Optimization: Problem Set 3}
 \author{Roger Garriga Calleja, Jos� Fernando Moreno Guti�rrez, David Rosenfeld, Katrina Walker}
 \date{\today}
-
-\begin{document}
-
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-
-\title{Stoch3}
-\author{david.rosenfeld }
-\date{March 2017}
-
-\begin{document}
-
-\maketitle
-
 \section{Introduction}
-
 \section{Q2. Inventory control with forecasts}
 \textbf{(a): Single period}\\
 \textbf{Primitives}
@@ -159,12 +143,7 @@ $G_k(z_k) = cz_k + bqE[max\{0, w_k - z_k\} | \xi = L] + b(1 -q)E[max\{0, w_k - z
 \\
 $G_k(z_k)$ is a convex function for all k, and there will be a solution $S_k$ which minimises $G(z)$ such that the optimal ordering policy becomes:\\
 $u_k^* = \mu_k^* = S_k - x_k$ if $S_k > x_k$, and 0 otherwise.
-
-
-\end{document}
-
-	
-\section{Q2. Inventory Pooling}
+\section{Q3. Inventory Pooling}
 \textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
 inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
 \begin{align*} 
