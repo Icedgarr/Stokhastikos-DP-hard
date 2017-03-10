@@ -108,24 +108,20 @@ implies that this is equal to $Q^*$. Thus, we can use the hint to find the
 following: 
 \begin{align*} %Q^* = \frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n}))
 \end{align*}
-\begin{align*} G(Q) = CQ - PD + h(Q-D)^++b(D-Q)^+ \\ G(Q) = CQ -
-PE[D] + hE[Q-D]^+bE[D-Q]^+ \\ G'(Q^*)= C + hP(D \leq Q^*) - b(1-P[D\leq Q^*]) =
-0 \\ P(D \leq Q^*) = \frac{-c+b}{h+b} \\ 
+\begin{align*} G(Q) =  h(Q-D)^++b(D-Q)^+ \\ G(Q) = hE[Q-D]^+bE[D-Q]^+ \\ G'(Q^*)= hP(D \leq Q^*) - b(1-P[D\leq Q^*]) =
+0 \\ P(D \leq Q^*) = \frac{b}{h+b} \\ 
 \end{align*} Next, we will apply the hint to prove the desired result:
 \begin{align*} nG(Q^*) &=
-n[CQ^*-PE[D]+hE[(Q^*-D)^+]+bE[(D-Q^*)^+]]\\ G(Q^*_p) & =
-[CQ^*_p-PE[\sum_{i=1}^nD_i]+hE[(Q^*_p-\sum_{i=1}^nD_i)^+]+bE[(\sum_{i=1}^nD_i-Q^*_p)^+]]\\ 
+n[hE[(Q^*-D)^+]+bE[(D-Q^*)^+]]\\ G(Q^*_p) & =
+[hE[(Q^*_p-\sum_{i=1}^nD_i)^+]+bE[(\sum_{i=1}^nD_i-Q^*_p)^+]]\\ 
 \end{align*} 
 Since $\sum_{i = 1}^nD_i = \sqrt{n}D_i+\mu(n-\sqrt{n})$ and $Q^*_P = \sqrt{n}Q^*+\mu(n-\sqrt{n})$, we can show that:\\
 \begin{align*} 
-G(Q^*_P) = & [C\sqrt{n}Q^*+\mu(n-\sqrt{n})-PE[\sqrt{n}D_i +  \mu(n-\sqrt{n})^+]\\
-+& \ hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \\
-+& b E[\sqrt{n}D_i+\mu(n-\sqrt{n})-\sqrt{n}Q^*+\mu(n-\sqrt{n})^+]]\\ 
+G(Q^*_P) & =  [hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \\
++& b E[\sqrt{n}D_i+\mu(n-\sqrt{n})-\sqrt{n}Q^*+\mu(n-\sqrt{n})^+]]\
 \end{align*} 
 \begin{align*} 
-G(Q^*_P) = & [C\sqrt{n}Q^*+\mu(n-\sqrt{n})-PE[\sqrt{n}D_i +  \mu(n-\sqrt{n})^+]\\
-+& \ hE[(\sqrt{n}Q^*-\sqrt{n}D_i] \\
-+& b E[\sqrt{n}D_i-\sqrt{n}Q^*]]\\ 
+& = [\sqrt{n}hE[(Q^*-D_i]  + \sqrt{n} \ b E[D_i-Q^*]] = \frac{nG(Q^*)}{\sqrt{n}}\\ 
 \end{align*} 
 \textbf{Problem 4 (An Investment Problem)}
 \end{document}
