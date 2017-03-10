@@ -1,30 +1,33 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\begin{document}
-\section{Q2. Inventory Pooling}
-\textbf{Primitives}\\
-D = demands \\
-Q = quantity ordered \\
-P = price \\
-h = inventory costs =  c-s \\
-b = backholding costs = p-c \\
-\\
-First we will show that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
-\begin{align*}
-	P (\sum_{L= 1}^n D_i \leq Q_p^*) = &  \frac{b}{b+R} \\
-	= & P(\sqrt{n}D_i + \mu(n - \sqrt{n})\leq Q_p^*) = \frac{b}{b+R} \\
-	= & P(D_i \leq \frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n})))= \frac{b}{b + h}
-\end{align*}
-Thus, 
-\begin{align*}
-Q^* = \frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n}))
-\end{align*}
-\begin{align*}
-G(Q) = CQ - PD + h ()
-\end{align*}
-	
+\documentclass[10pt,a4paper]{article} \usepackage[latin1]{inputenc}
+\usepackage{amsmath} \usepackage{amsfonts} \usepackage{amssymb}
+\usepackage{graphicx} \begin{document} \section{Q2. Inventory Pooling}
+	\textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
+	inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show
+	that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
+	\begin{align*} P (\sum_{L= 1}^n D_i \leq Q_p^*) = &  \frac{b}{b+R} \\ = &
+	P(\sqrt{n}D_i + \mu(n - \sqrt{n})\leq Q_p^*) = \frac{b}{b+R} \\ = & P(D_i \leq
+	\frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n})))= \frac{b}{b + h} \end{align*} which
+	implies that this is equal to $Q^*$. Thus, we can use the hint to find the
+	following: 
+	\begin{align*} %Q^* = \frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n}))
+	\end{align*}
+	 \begin{align*} G(Q) = CQ - PD + h(Q-D)^++b(D-Q)^+ \\ G(Q) = CQ -
+	PE[D] + hE[Q-D]^+bE[D-Q]^+ \\ G'(Q^*)= C + hP(D \leq Q^*) - b(1-P[D\leq Q^*]) =
+	0 \\ P(D \leq Q^*) = \frac{-c+b}{h+b} \\ 
+	\end{align*} By using the hint, we can prove the desired result: 
+	\begin{align*} nG(Q^*) &=
+	n[CQ^*-PE[D]+hE[(Q^*-D)^+]+bE[(D-Q^*)^+]]\\ G(Q^*_p) & =
+	[CQ^*_p-PE[\sum_{i=1}^nD_i]+hE[(Q^*_p-\sum_{i=1}^nD_i)^+]+bE[(\sum_{i=1}^nD_i-Q^*_p)^+]]\\ 
+	\end{align*} 
+	Since $\sum_{i = 1}^nD_i = \sqrt{n}D_i+\mu(n-\sqrt{n})$ and $Q^*_P = \sqrt{n}Q^*+\mu(n-\sqrt{n})$, we can show that:\\
+	\begin{align*} 
+	G(Q^*_P) = & [C\sqrt{n}Q^*+\mu(n-\sqrt{n})-PE[\sqrt{n}D_i +  \mu(n-\sqrt{n})^+]\\
+	+& \ hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \\
+	+& b E[\sqrt{n}D_i+\mu(n-\sqrt{n})-\sqrt{n}Q^*+\mu(n-\sqrt{n})^+]]\\ 
+	\end{align*} 
+	\begin{align*} 
+G(Q^*_P) = & [C\sqrt{n}Q^*+\mu(n-\sqrt{n})-PE[\sqrt{n}D_i +  \mu(n-\sqrt{n})^+]\\
++& \ hE[(\sqrt{n}Q^*-\sqrt{n}D_i] \\
++& b E[\sqrt{n}D_i-\sqrt{n}Q^*]]\\ 
+\end{align*} 
 \end{document}
