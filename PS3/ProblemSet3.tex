@@ -124,5 +124,56 @@ G(Q^*_P) & =  [hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \
 & = \sqrt{n}hE[(Q^*-D_i)^+] + \sqrt{n} \ b E[(D_i-Q^*)^+] = \frac{nG(Q^*)}{\sqrt{n}}\\ 
 \end{align*} 
 Q.E.D.\\
-\textbf{Problem 4 (An Investment Problem)}
+
+\textbf{Problem 4 (An Investment Problem): An investor has the opportunity to make $N$ sequential investments: at time $k$ he may invest any amount $u_k\geq 0$ that does not exceed his current wealth $x_k$ (does not exceed his current wealth, $x_0$, plus his gain or minus his loss thus far). He wins his investment back and as much more with probability $p$, where $\frac{1}{2}<p<1$, and he loses his investment with probability $(1-p)$. Find the optimal investment strategy.\\}
+
+\underline{Primitives:\\} 
+
+$x_k$: wealth at the beginning of period $k$.\\
+$u_k$: amount invested.\\
+$w_k$: outcome (return).\\
+$w_k=\left\{\begin{array}{ll}
+2u_k & \text{w.p. }p\\
+0 & \text{w.p. }1-p
+\end{array}\right.$\\
+where $\frac{1}{2}<p<1$.\\
+
+\underline{Constrains:\\}
+
+$u_k\geq 0$, \\
+$u_k\leq x_k$.\\
+
+\underline{Dynamics:\\}
+
+$x_{k+1}=x_k-u_k+w_k$, \\
+
+\underline{Cost:\\}
+
+$g_N(x_N)=x_N$\\
+$g_k(x_k,u_k,w_k)=0$. \\
+
+\underline{DP algorithm:\\}
+
+To simplify th
+$J_N(x_N)=\log(x_N)$. \\
+$J_k(x_k)=\underset{u_k\in \mathcal{U}_k}{\max}\mathbb{E}_{w_k}\left[J_{k+1}(x_k-u_k+w_k)\right]$.\\
+We will first prove that $J_k(x_k)=A_k+\ln(x_k)$ by induction.
+
+\begin{align}
+	J_{N-1}(x_{N-1})&=\underset{u_{n-1}}{\max\ }\mathbb{E}_{w_{N-1}}\left[\log(x_{N-1}-u_{N-1}+w_{N-1})\right]=\\
+	&=\underset{u_{N-1}}{\max\ }\mathbb{E}_{w_{N-1}}[\log(x_{N-1}-u_{N-1}+w_{N-1})]=\\
+	&=\underset{u_{N-1}}{\max\ }\left[p\log(x_{N-1}+u_{N-1})+(1-p)\log(x_{N-1}-u_{N-1})\right].
+\end{align}
+Now, we derive and apply FOC to find the maximum,
+\begin{align}
+	\frac{p}{x_{N-1}+u_{N-1}}-\frac{1-p}{x_{N-1}-u_{N-1}}=0
+\end{align}
+\begin{align}
+	px_{N-1}-pu_{N-1}=x_{N-1}+u_{N-1}-px_{N-1}-pu_{N-1},
+\end{align}
+solving we obtain $u_{N-1}=(2p-1)x_{N-1}$. Plugging into the expression of $J_{N-1}(x_{N-1})$
+\begin{align}
+	J_{N-1}(x_{N-1})&=
+\end{align}
+
 \end{document}
