@@ -95,22 +95,10 @@
 \author{Roger Garriga Calleja, Jos� Fernando Moreno Guti�rrez, David Rosenfeld, Katrina Walker}
 \date{\today}
 
-\begin{document}
-
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-
-\title{Stoch3}
-\author{david.rosenfeld }
-\date{March 2017}
 
 \begin{document}
-
-\maketitle
-
-\section{Introduction}
-
-\section{Q2. Inventory control with forecasts}
+	
+\section*{Q1. Inventory control with forecasts}
 \textbf{(a): Single period}\\
 \textbf{Primitives}
 $D$: Demand, which is a random variable \\ $D =     \left\{ \begin{array}{rcl}
@@ -161,10 +149,7 @@ $G_k(z_k)$ is a convex function for all k, and there will be a solution $S_k$ wh
 $u_k^* = \mu_k^* = S_k - x_k$ if $S_k > x_k$, and 0 otherwise.
 
 
-\end{document}
-
-	
-\section{Q2. Inventory Pooling}
+\section*{Q2. Inventory Pooling}
 \textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
 inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
 \begin{align*} 
@@ -192,7 +177,8 @@ G(Q^*_P) & =  [hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \
 \end{align*} 
 Q.E.D.\\
 
-\textbf{Problem 4 (An Investment Problem): An investor has the opportunity to make $N$ sequential investments: at time $k$ he may invest any amount $u_k\geq 0$ that does not exceed his current wealth $x_k$ (does not exceed his current wealth, $x_0$, plus his gain or minus his loss thus far). He wins his investment back and as much more with probability $p$, where $\frac{1}{2}<p<1$, and he loses his investment with probability $(1-p)$. Find the optimal investment strategy.\\}
+
+\section{Q4 An Investment Problem}
 
 \underline{Primitives:\\} 
 
@@ -224,23 +210,37 @@ $g_k(x_k,u_k,w_k)=0$. \\
 To simplify th
 $J_N(x_N)=\log(x_N)$. \\
 $J_k(x_k)=\underset{u_k\in \mathcal{U}_k}{\max}\mathbb{E}_{w_k}\left[J_{k+1}(x_k-u_k+w_k)\right]$.\\
-We will first prove that $J_k(x_k)=A_k+\ln(x_k)$ by induction.
+We will first prove that $J_k(x_k)=A_k+\log(x_k)$ by induction (where $\log$ is the logarithm in base $e$).
 
 \begin{align}
-	J_{N-1}(x_{N-1})&=\underset{u_{n-1}}{\max\ }\mathbb{E}_{w_{N-1}}\left[\log(x_{N-1}-u_{N-1}+w_{N-1})\right]=\\
-	&=\underset{u_{N-1}}{\max\ }\mathbb{E}_{w_{N-1}}[\log(x_{N-1}-u_{N-1}+w_{N-1})]=\\
-	&=\underset{u_{N-1}}{\max\ }\left[p\log(x_{N-1}+u_{N-1})+(1-p)\log(x_{N-1}-u_{N-1})\right].
+J_{N-1}(x_{N-1})&=\underset{u_{n-1}}{\max\ }\mathbb{E}_{w_{N-1}}\left[\log(x_{N-1}-u_{N-1}+w_{N-1})\right]=\\
+&=\underset{u_{N-1}}{\max\ }\mathbb{E}_{w_{N-1}}[\log(x_{N-1}-u_{N-1}+w_{N-1})]=\\
+&=\underset{u_{N-1}}{\max\ }\left[p\log(x_{N-1}+u_{N-1})+(1-p)\log(x_{N-1}-u_{N-1})\right].
 \end{align}
 Now, we derive and apply FOC to find the maximum,
 \begin{align}
-	\frac{p}{x_{N-1}+u_{N-1}}-\frac{1-p}{x_{N-1}-u_{N-1}}=0
+\frac{p}{x_{N-1}+u_{N-1}}-\frac{1-p}{x_{N-1}-u_{N-1}}=0
 \end{align}
 \begin{align}
-	px_{N-1}-pu_{N-1}=x_{N-1}+u_{N-1}-px_{N-1}-pu_{N-1},
+px_{N-1}-pu_{N-1}^*=x_{N-1}+u_{N-1}^*-px_{N-1}-pu_{N-1}^*,
 \end{align}
-solving we obtain $u_{N-1}=(2p-1)x_{N-1}$. Plugging into the expression of $J_{N-1}(x_{N-1})$
+solving we obtain $u_{N-1}^*=(2p-1)x_{N-1}$, which makes sense, because $2p-1$ is between 0 and 1 for $\frac{1}{2}<p<1$. Plugging into the expression of $J_{N-1}(x_{N-1})$
 \begin{align}
-	J_{N-1}(x_{N-1})&=
+J_{N-1}(x_{N-1})&=p\log(x_{N-1}+(2p-1)x_{N-1})+(1-p)\log(x_{N-1}-(2p-1)x_{N-1})=\\
+&=p\log(2px_{N-1})+(1-p)\log(2(1-p)x_{N-1})=\\
+&=p\log(2p)+p\log(x_{N-1})+(1-p)\log(2(1-p))+(1-p)\log(x_{N-1}=\\
+&=p\log(2p)+(1-p)\log(2(1-p))+\log(x_{N-1}).
 \end{align}
+So, for $N-1$ we have $A_{N-1}=p\log(2p)+(1-p)\log(2(1-p))$. Now, suppose $J_{k+1}(x_{k1})=A_{k+1}+\log(x_{k+1})$ let's prove it for $k$:
+\begin{align}
+J_{k}(x_{k})&=\underset{u_{k}}{\max\ }\mathbb{E}_{w_{k}}\left[A_{k+1}+\log(x_{k+1})\right]=\\
+&=\underset{u_{k}}{\max\ }\mathbb{E}_{w_{k}}\left[A_{k+1}+\log(x_{k}-u_{k}+w_{k})\right]=\\
+&=\underset{u_{k}}{\max\ }\left[A_{k+1}+ p\log(x_{k}+u_{k})+(1-p)\log(x_{k}-u_{k})\right].
+\end{align} 
+Applying first order conditions we would obtain the same equation as before ($A_{k+1}$ does not depend on $u_k$), so $u_k=(2p-1)x_k$. Plugging in the $J_k(x_k)$ we obtain the same way as before
+\begin{align}
+J_{k}(x_{k})&=A_{k+1}+p\log(2p)+(1-p)\log(2(1-p))+\log(x_{k}).
+\end{align}
+So, $J_k(x_k)=A_k+\log(x_k)$, where $A_k=A_{k+1}+p\log(2p)+(1-p)\log(2(1-p))$. So, the policy will be to invest $(2p-1)x_k$ of wealth each period $k$.
 
 \end{document}
