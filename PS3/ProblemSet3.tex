@@ -96,6 +96,73 @@
 \date{\today}
 
 \begin{document}
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Stoch3}
+\author{david.rosenfeld }
+\date{March 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\section{Q2. Inventory control with forecasts}
+\textbf{(a): Single period}\\
+\textbf{Primitives}
+$D$: Demand, which is a random variable \\ $D =     \left\{ \begin{array}{rcl}
+         P_L & \mbox{ with probability q}\\ 
+         P_S  & \mbox{with probability 1 - q}
+                \end{array}\right.$\\
+$p$: Sale price per unit\\ $c$: Ordering cost per unit\\$s$: Salvage value per unit\\ $b = p - c$: Backorder cost per unit\\ $h = c - s$: Inventory holding cost per unit\\ $Q$: Inventory decision.\\
+\\
+The profit for this problem can be written as:\\
+$\pi(Q) = E[p.min\{D, Q\} - c.Q + s(Q - D)^+]$\\
+$\pi(Q) = pE[D] - (p - c)E[(D - Q)^+] + (c - s)E[(Q - D)^+]$\\
+$\pi(Q) = pE[D] - bE[(D - Q)^+] - hE[(Q - D)^+]$\\
+\\
+We then expand the formula to account for the expectation of demand D which takes value $P_L$ with probability $q$:\\
+$$\pi(Q) = pE[D] - b[q.E_{P_L}[(D - Q)^+] + (1 -q).E_{P_S}[(D - Q)^+]] - h[qE_{P_L}[(Q - D)^+] + (1 - q)E_{P_S}[(Q - D)^+]]$$
+\\
+We take the derivative of the profit with respect to quantity in order to minimise, and set it equal to zero (with $P_L$ and $P_S$ the probability distributions in the large and small demand cases respectively):\\
+$$\pi'(Q^*) = -b[qP_L(D > Q^*) + (1 -q)P_S(D > Q^*)] + h[qP_L(Q^* > D) + (1 - q)P_S(Q^* > D) = 0$$
+\\
+$$-bq(1 -P_L(D \leq Q^*) - b(1 -q)(1 -P_S(D \leq Q^*)) + hqP_L(D \leq Q^*) + h(1 - q)P_S(D \leq Q^*) = 0$$
+We can then obtain that the optimal decision $Q^*$ satisfies:
+$$qP_L(D \leq Q^*) + (1 - q)P_S(D \leq Q^*) = \frac{b}{b + h}$$
+
+
+\textbf{(b) Multi-period problem}\\
+\textbf{Primitives}\\
+$x_k$: Inventory level at period k \\$u_k$: Decision variable over the number of units to order.\\ $w_k$: Demand at period k.\\ $y_{k+1} = \xi$ where $\xi$ takes the value "large demand" with probability q:\\ $\xi_k =     \left\{ \begin{array}{rcl}
+         L & \mbox{ with probability q}\\ 
+         S  & \mbox{with probability 1 - q}
+                \end{array}\right.$\\
+$c$: ordering cost per unit\\ $p$: Sale price per unit\\ $s$: Salvage value\\ $b = p - c$: Backorder cost per unit\\ $h = c - s$: Inventory holding cost per unit\\
+\\
+\textbf{Dynamics:}\\
+$x_{k+1} = x_k + u_k - w_k$\\ $y_{k+1} = \xi_k$\\ $g_N(x_N) = -s(x_N)$\\ $g_k(x_k, u_k, w_k) = cu_k - pw_k + b max\{w_k - x_k - u_k, 0\} + h max\{x_k + u_k - w_k\}$\\
+\\
+\textbf{DP algorithm}:
+$J_N(x_N) = -s(x_N)$\\
+$J_k(x_k) = \min_{u_k \geq 0}E_{w_k, \xi_k}[g_k(x_k, u_k, w_k) + J_{k+1}(x_k, u_k, w_k)]$\\
+\\
+We can introduce the variable $z_k = x_k + u_k$, and rewrite our DP equation as follows:\\
+$$J_k(x_k) = \min_{z_k \geq x_k}[G_k(z_k)] - cx_k$$
+where $G_k(z_k) = cz_k + bE[max\{0, w_k - z_k\}] + hE[max\{0, z_k - w_k\}] + E[J_{k+1}(z_k - w_k)]$\\
+\\
+Once again we can expand this expression to take into account the two different values of $\xi$ for large and small demand:\\
+$G_k(z_k) = cz_k + bqE[max\{0, w_k - z_k\} | \xi = L] + b(1 -q)E[max\{0, w_k - z_k\} | \xi = S] + hqE[max\{0, z_k - w_k\} | \xi = L] + h(1 -q)E[max\{0, z_k - w_k\} | \xi = S] + E[J_{k+1}(z_k - w_k)]$\\
+\\
+$G_k(z_k)$ is a convex function for all k, and there will be a solution $S_k$ which minimises $G(z)$ such that the optimal ordering policy becomes:\\
+$u_k^* = \mu_k^* = S_k - x_k$ if $S_k > x_k$, and 0 otherwise.
+
+
+\end{document}
+
 	
 \section{Q2. Inventory Pooling}
 \textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
