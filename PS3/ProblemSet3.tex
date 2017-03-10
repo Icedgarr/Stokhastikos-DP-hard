@@ -99,18 +99,20 @@
 	
 \section{Q2. Inventory Pooling}
 \textbf{Primitives}\\ D = demands \\ Q = quantity ordered \\ P = price \\ h =
-inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show
-that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
-\begin{align*} P (\sum_{L= 1}^n D_i \leq Q_p^*) = &  \frac{b}{b+R} \\ = &
-P(\sqrt{n}D_i + \mu(n - \sqrt{n})\leq Q_p^*) = \frac{b}{b+R} \\ = & P(D_i \leq
-\frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n})))= \frac{b}{b + h} \end{align*} which
-implies that this is equal to $Q^*$. Thus, we can use the hint to find the
-following: 
-\begin{align*} %Q^* = \frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n}))
-\end{align*}
-\begin{align*} G(Q) =  h(Q-D)^++b(D-Q)^+ \\ G(Q) = hE[Q-D]^+bE[D-Q]^+ \\ G'(Q^*)= hP(D \leq Q^*) - b(1-P[D\leq Q^*]) =
+inventory costs =  c-s \\ b = backholding costs = p-c \\ \\ First we will show that $Q_p^* = \sqrt{n}Q^* + \mu(n- \sqrt{n})$%
+\begin{align*} 
+G(Q) = hE[(Q-D)]^+bE[(D-Q)]^+ \\ G'(Q^*)= hP(D \leq Q^*) - b(1-P[(D\leq Q^*)]) =
 0 \\ P(D \leq Q^*) = \frac{b}{h+b} \\ 
-\end{align*} Next, we will apply the hint to prove the desired result:
+\end{align*}
+Now, for the pooling we would obtain the same:
+\begin{align*} 
+P (\sum_{L= 1}^n D_i \leq Q_p^*) = &  \frac{b}{b+R} \\
+\end{align*}
+Since  this $\sum_{i = 1}^nD_i = \sqrt{n}D_i+\mu(n-\sqrt{n})$, 
+\begin{align*}	
+P(\sqrt{n}D_1 + \mu(n - \sqrt{n})\leq Q_p^*) = \frac{b}{b+R}  \Longleftrightarrow P(D_1 \leq
+\frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n})))= \frac{b}{b + h} \end{align*} 
+which implies that $\frac{1}{\sqrt{n}}(Q_p^*- \mu(n-\sqrt{n})))$ = $Q^*$. Thus, $Q^*_P = \sqrt{n}Q^*+\mu(n-\sqrt{n})$.  Next, we will apply the hint to prove the desired result:
 \begin{align*} nG(Q^*) &=
 n[hE[(Q^*-D)^+]+bE[(D-Q^*)^+]]\\ G(Q^*_p) & =
 [hE[(Q^*_p-\sum_{i=1}^nD_i)^+]+bE[(\sum_{i=1}^nD_i-Q^*_p)^+]]\\ 
@@ -118,10 +120,9 @@ n[hE[(Q^*-D)^+]+bE[(D-Q^*)^+]]\\ G(Q^*_p) & =
 Since $\sum_{i = 1}^nD_i = \sqrt{n}D_i+\mu(n-\sqrt{n})$ and $Q^*_P = \sqrt{n}Q^*+\mu(n-\sqrt{n})$, we can show that:\\
 \begin{align*} 
 G(Q^*_P) & =  [hE[(\sqrt{n}Q^*+\mu(n-\sqrt{n})-\sqrt{n}D_i-\mu(n-\sqrt{n}))^+] \\
-+& b E[\sqrt{n}D_i+\mu(n-\sqrt{n})-\sqrt{n}Q^*+\mu(n-\sqrt{n})^+]]\
++& b E[\sqrt{n}D_i+\mu(n-\sqrt{n})-\sqrt{n}Q^*+\mu(n-\sqrt{n})^+]]\\
+& = \sqrt{n}hE[(Q^*-D_i)^+] + \sqrt{n} \ b E[(D_i-Q^*)^+] = \frac{nG(Q^*)}{\sqrt{n}}\\ 
 \end{align*} 
-\begin{align*} 
-& = [\sqrt{n}hE[(Q^*-D_i]  + \sqrt{n} \ b E[D_i-Q^*]] = \frac{nG(Q^*)}{\sqrt{n}}\\ 
-\end{align*} 
+Q.E.D.\\
 \textbf{Problem 4 (An Investment Problem)}
 \end{document}
