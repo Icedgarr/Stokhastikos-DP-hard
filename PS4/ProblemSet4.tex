@@ -1,0 +1,104 @@
+\documentclass[11pt, english]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=20mm,
+	top=30mm,
+	right=20mm
+}
+
+
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+
+%\lstdefinestyle{myCustomMatlabStyle}{
+%	language=Matlab,
+%	numbers=left,
+%	stepnumber=1,
+%	numbersep=10pt,
+%	tabsize=4,
+%	showspaces=false,
+%	showstringspaces=false
+%}
+
+\usepackage{graphicx} 
+\usepackage{fancyvrb} 
+\usepackage{listings} 
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{inputenc}
+
+\lstdefinestyle{myCustomMatlabStyle2}{% setup listings 
+	language=R,% set programming language 
+	basicstyle=\small,% basic font style 
+	keywordstyle=\bfseries,% keyword style 
+	commentstyle=\ttfamily\itshape,% comment style 
+	numbers=left,% display line numbers on the left side 
+	numberstyle=\scriptsize,% use small line numbers 
+	numbersep=10pt,% space between line numbers and code 
+	tabsize=3,% sizes of tabs 
+	showstringspaces=false,% do not replace spaces in strings by a certain character 
+	captionpos=b,% positioning of the caption below 
+	breaklines=true,% automatic line breaking 
+	escapeinside={(*}{*)},% escaping to LaTeX 
+	fancyvrb=true,% verbatim code is typset by listings 
+	extendedchars=false,% prohibit extended chars (chars of codes 128--255) 
+	literate={"}{{\texttt{"}}}1{<-}{{$\leftarrow$}}1{<<-}{{$\twoheadleftarrow$}}1 
+	{~}{{$\sim$}}1{<=}{{$\le$}}1{>=}{{$\ge$}}1{!=}{{$\neq$}}1{^}{{$^\wedge$}}1,% item to replace, text, length of chars 
+	alsoletter={.<-},% becomes a letter 
+	alsoother={$},% becomes other 
+	otherkeywords={!=, ~, $, *, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords 
+	deletekeywords={c}% remove keywords 
+}
+
+\newcommand{\grafico}[5]{
+	\begin{figure}
+		[h!tbp]
+		\centering
+		\includegraphics[scale=#2, angle=#3]{#1}
+		%\captionsetup{width=13cm}
+		\caption{#4\label{#5}}
+	\end{figure}
+}
+
+\newcommand{\su}[2]{\sum\limits_{#1}^{#2}}
+
+\setlength{\parindent}{0pt}
+\begin{document}
+\title{Stochastic Models and Optimization: Problem Set 4}
+\author{Roger Garriga Calleja, José Fernando Moreno Gutiérrez, David Rosenfeld, Katrina Walker}
+\date{\today}
+\begin{document}
+\maketitle
+\section*{Q1}
+\section*{Q2}
+\section*{Q3}
+\section*{Q4}
+\section*{Q5}
+
+\end{document}
