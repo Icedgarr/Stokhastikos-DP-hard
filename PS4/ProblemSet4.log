@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 MAR 2017 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 MAR 2017 20:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -864,8 +864,7 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \c@FancyVerbLine=\count121
 \FV@StepNumber=\count122
 \FV@OutFile=\write3
-)
-No file ProblemSet4.aux.
+) (./ProblemSet4.aux)
 \openout1 = `ProblemSet4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
@@ -880,6 +879,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
 LaTeX Font Info:    ... okay on input line 92.
 LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 92.
 LaTeX Font Info:    ... okay on input line 92.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -998,31 +998,228 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 97.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./Prob
-lemSet4.aux) )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 104.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 104.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 105.
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+! Missing $ inserted.
+<inserted text> 
+                $
+l.107 \left
+            \{
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.113 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.113 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.113 
+      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.116 \left
+            \{
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.122 \\ $g_
+            k(x_k, u_k, w_k)$ =
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.123 \left
+            \{
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.134 J_
+        {n-1}(P_{n-1}) =
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.142 J_
+        k(x_k) =
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.145 ...)(1 + r)^{k}, \mathds{E}[{J_{k+1}(w_k)] $
+                                                  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.148 \right \} \textup{if} \ $x_
+                                 {k} \neq$ T
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.154 \left
+            \{
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+<template> \unskip \hfil }
+                          \hskip \tabcolsep \endtemplate 
+l.157 		u
+         ^2$,  otherwise
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.157 		u
+         ^2$,  otherwise
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.157 		u
+         ^2$,  otherwise
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.157 		u^
+          2$,  otherwise
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.161 \section
+              *{Q4}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--161
+
+ []
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] (./ProblemSet4.aux) )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 96 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5970 strings out of 493014
- 80042 string characters out of 6133351
- 151368 words of memory out of 5000000
- 9393 multiletter control sequences out of 15000+600000
- 13124 words of font info for 48 fonts, out of 8000000 for 9000
+ 6014 strings out of 493014
+ 80827 string characters out of 6133351
+ 156368 words of memory out of 5000000
+ 9423 multiletter control sequences out of 15000+600000
+ 16178 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,32p,243b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,32p,319b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr17.pfb>
-Output written on ProblemSet4.pdf (1 page, 41348 bytes).
+/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathabx-type1/matha6.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathabx-type1/matha8.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.p
+fb>
+Output written on ProblemSet4.pdf (2 pages, 129843 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 79 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

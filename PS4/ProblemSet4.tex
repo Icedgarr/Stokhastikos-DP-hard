@@ -97,8 +97,67 @@
 \maketitle
 \section*{Q1}
 \section*{Q2}
-\section*{Q3}
+\section*{Q3}\textbf{Asset selling w/offer estimation}\\
+\\
+\underline{Primitives}\\
+\begin{itemize}
+\item  $w_0, w_1,.....w_{n-1}$ of iid offers with unknown distribution
+\item an underlying distribution (i.e. the hidden state): $F_1$ or $F_2$, where $F_1(w) = \mathds{P}(W= w | F_1$ is the true distribution), thus $x_k = x^1$ if true distribution is $F_1$ and $x^2$ if the true distribution if $F_2$
+\item constraints (if seller sells or not):
+\left \{
+\begin{tabular}{lll}
+	{$u^1, u^2$} \ \textup{if} \ $x_k$ $\neq$ T\\
+	0,  otherwise \\
+\end{tabular}
+\right\}\\ 
+
+\item rewards:
+$g_n()$ =
+\left \{
+\begin{tabular}{lll}
+ $x_n$, \textup{if} \ $x_n$ $\neq$ T\\
+0,  otherwise \\
+\end{tabular}
+\right \}
+\\ $g_k(x_k, u_k, w_k)$ = 
+\left \{ 
+\begin{tabular}{lll}
+$(1 + r)^{n-k}x_k$, \textup{if} \ $x_k$ $\neq$ T and if $u_k$ = $u^1$\\
+	0,  otherwise 
+\end{tabular}
+\right \}$
+\item P = prior belief that $F_1$ is true 
+\item $P_{k-1} = \frac{\mathds{P}\{x_1 = x_1\}\cap \{w_1 = w_1\}}{\mathds{P}(w_1 = w_1)}$
+= $\frac{q_kF_1(w_k)}{q_kF_1(w_k) + (1-q)F_2(w_k)}$
+\end{itemize}
+Now, we can apply the DP algorithm to find an optimal asset selling policy\\ 
+J_{n-1}(P_{n-1}) = 
+\left \{ 
+\begin{tabular}{lll}
+$(P_{n-1}\mathds{E}_{F_1}[w_{n-1}] + (1-P_{n-1})\mathds{E}_{F_2}[w_{n-1}])(1 + r)^{n-k}$\\
+0,  otherwise 
+\end{tabular}\\
+\right \}\textup{if} \ x_{n-1} \neq T\\$
+\\
+J_k(x_k) = 
+\left \{
+\begin{tabular}{lll}
+	max$(P_{k}\mathds{E}_{F_1}[w_{k}] + (1-P_{k})\mathds{E}_{F_2}[w_{k}])(1 + r)^{k}, \mathds{E}[{J_{k+1}(w_k)] $\\
+	0,  otherwise 
+\end{tabular}
+\right \} \textup{if} \ $x_{k} \neq$ T
+\\
+Thus, the threshold for selling an asset will be:
+$P_k\mathds{E}_{F_1}(w_k) + (1 - P_k)\mathds{E}_{F_2}(w_k) \geq \frac{\mathds{E}[J_{k+1}(w_k)]}{(1 +r)^{n-k}}$ \\
+And the optimal asset selling policy:
+$\mu^*(x_k) =$
+\left \{
+\begin{tabular}{lll}
+	$u^*, \frac{\mathds{E}[J_{k+1}(w_k)]}{(1 +r)^{n-k}} \\
+		u^2$,  otherwise 
+	\end{tabular}
+	\right \}
+	\\
 \section*{Q4}
 \section*{Q5}
-
 \end{document}
