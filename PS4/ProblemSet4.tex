@@ -151,5 +151,33 @@ $ \left \{
 $u^*, \frac{\mathds{E}[J_{k+1}(w_k)]}{(1 +r)^{n-k}}$\\
 $u^2$, otherwise
 \end{tabular}
-\right \}\\
-$\end{document}
+\right \}\\$
+
+\section{Q4}
+
+
+This problem is basically the same as the inventory management considering the demand as a random variable following an unknown distribution. It is a case with imperfect state information, in which the distribution of demand will be either $F_1$ or $F_2$. The probability that the demand follows $F_1$ is updated at each period $k$ after observing the realization of the demand. That will effect the way the expectation of the demand is computed.\\
+
+\underline{Primitives:\\}
+
+$x_k$: items in the inventory at period $k$.\\
+$u_k$: quantity ordered at period $k$.\\
+$w_k$: demand during period $k$. $w_k$ are iid with probability distribution either $F_1$ or $F_2$.\\
+$q_k$: probability that $w_k$ follows distribution $F_1$.\\
+$q_0=q$: a priori probability that demand follows the distribution $F_1$.\\
+
+\underline{Dynamics:\\}
+
+$x_{k+1}=x_k+u_k-w_k$\\
+$q_{k+1}=\frac{q_kf_1(w_k)}{q_kf_1(w_k)+(1-q_k)f_2(w_k)}$, where $f_i(w)$ is the pdf of the distribution $F_i$.\\
+
+\underline{Cost:\\}
+
+$g_N(x_N)=0$.\\
+$g_k(x_k,u_k,w_k)=cu_k+h\max\{0,w_k-x_k-u_k\}+p\max\{0,x_k+u_k-w_k\}$, where $c,h,p$ are positive and $p>c$.\\
+
+\underline{DP algorithm:}\\
+
+$J_N(x_N)=0$\\
+$J_k(x_k)=\underset{u_k\geq 0}{\min}\mathbb{E}\left[\right]$
+\end{document}
