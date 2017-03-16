@@ -109,21 +109,21 @@ $\left \{\begin{tabular}{lll}
 	0,  otherwise
 \end{tabular} \right\}\\ 
 $\item rewards:
-$g_n() =$
+$g_n(x_N) =$
 $\left \{
 \begin{tabular}{lll}
- $x_n$, \textup{if} \ $x_n$ $\neq$ T\\
+ $x_N$, \textup{if} \ $x_N$ $\neq$ T\\
 0,  otherwise
 \end{tabular}\right \}\\
 g_k(x_k, u_k, w_k)$ = 
 $ \left \{ 
 \begin{tabular}{lll}
-$(1 + r)^{n-k}x_k$, \textup{if} \ $x_k$ $\neq$ T and if $u_k$ = $u^1$\\
+$(1 + r)^{N-k}x_k$, \textup{if} \ $x_k$ $\neq$ T and if $u_k$ = $u^1$\\
 	0,  otherwise 
 \end{tabular}
 \right \}$
-\item P = prior belief that $F_1$ is true 
-\item $P_{k-1} = \frac{\mathds{P}\{x_1 = x_1\}\cap \{w_1 = w_1\}}{\mathds{P}(w_1 = w_1)}$
+\item $q$ = prior belief that $F_1$ is true 
+\item $q_{k-1} = \frac{\mathds{P}\{x_1 = x_1\}\cap \{w_1 = w_1\}}{\mathds{P}(w_1 = w_1)}$
 = $\frac{q_kF_1(w_k)}{q_kF_1(w_k) + (1-q)F_2(w_k)}$
 \end{itemize}
 Now, we can apply the DP algorithm to find an optimal asset selling policy\\ 
