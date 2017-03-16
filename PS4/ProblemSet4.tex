@@ -100,8 +100,9 @@
 \\
 \underline{Primitives}\\
 \begin{itemize}
+\item $x_k$ current offer.
 \item  $w_0, w_1,.....w_{n-1}$ of iid offers with unknown distribution
-\item an underlying distribution of the offers $w$ (i.e. the hidden state $x_k$) $F_1$ or $F_2$, thus $x_k = x^1$ if true distribution is $F_1$ and $x^2$ if the true distribution is $F_2$
+\item an underlying distribution of the offers $w$ (i.e. the hidden state $x_k$) $F_1$ or $F_2$, thus $y_k = y^1$ if true distribution is $F_1$ and $y^2$ if the true distribution is $F_2$
 \item 
 constraints (if seller sells ($u_1$) or not ($u_2$)):
 $\left \{\begin{tabular}{lll}
@@ -123,17 +124,17 @@ $(1 + r)^{N-k}x_k$, \textup{if} \ $x_k$ $\neq$ T and if $u_k$ = $u^1$\\
 \end{tabular}
 \right \}$
 \item $q$ = prior belief that $F_1$ is true 
-\item $q_{k-1} = \frac{\mathds{P}\{x_1 = x_1\}\cap \{w_1 = w_1\}}{\mathds{P}(w_1 = w_1)}$
+\item $q_{k+1} = \frac{\mathds{P}\{y_k = y^1|w_0,\dots,w_{k}\}}{\mathds{P}(w_1 = w_1)}$
 = $\frac{q_kF_1(w_k)}{q_kF_1(w_k) + (1-q)F_2(w_k)}$
 \end{itemize}
 Now, we can apply the DP algorithm to find an optimal asset selling policy\\ 
-$J_{n-1}(P_{n-1}) = $
+$J_{N-1}(P_{N-1}) = $
 $ \left \{ 
 \begin{tabular}{lll}
-$(P_{n-1}\mathds{E}_{F_1}[w_{n-1}] + (1-P_{n-1})\mathds{E}_{F_2}[w_{n-1}])(1 + r)^{n-k}$\\
+$(P_{N-1}\mathds{E}_{F_1}[w_{N-1}] + (1-P_{N-1})\mathds{E}_{F_2}[w_{N-1}])(1 + r)^{N-k}$\\
 0,  otherwise 
 \end{tabular}\\
-\right \}\textup{if} \ x_{n-1} \neq T\\$
+\right \}\textup{if} \ x_{N-1} \neq T\\$
 \\
 $ J_k(x_k) = $
 $ \left \{

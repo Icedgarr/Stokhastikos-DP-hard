@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.1)  17 MAR 2017 00:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.1)  17 MAR 2017 00:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1001,68 +1001,68 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--111
+Underfull \hbox (badness 10000) in paragraph at lines 107--112
 
  []
 
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 126.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 127.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 129--155
+Underfull \hbox (badness 10000) in paragraph at lines 130--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--155
+Underfull \hbox (badness 10000) in paragraph at lines 130--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 164--169
+Underfull \hbox (badness 10000) in paragraph at lines 165--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--174
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--179
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--184
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
+Underfull \hbox (badness 10000) in paragraph at lines 187--189
 
  []
 
 
-Overfull \hbox (27.47217pt too wide) in paragraph at lines 191--191
+Overfull \hbox (27.47217pt too wide) in paragraph at lines 192--192
 [] 
  []
 
 
-Overfull \hbox (0.99693pt too wide) in paragraph at lines 191--193
+Overfull \hbox (0.99693pt too wide) in paragraph at lines 192--194
 \OT1/cmr/m/n/10.95 We saw in class that $\OML/cmm/m/it/10.95 cy[] \U/matha/m/n/
 10.95 ^^@ \OML/cmm/m/it/10.95 h\U/msb/m/n/10.95 E[]\U/matha/m/n/10.95 r[]t\OT1/
 cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; w[] \U/matha/m/n/10.95 ^^A \OML/cmm/m/it/1
@@ -1100,7 +1100,7 @@ ype1/matha10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type
 tha8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
-Output written on ProblemSet4.pdf (2 pages, 140787 bytes).
+Output written on ProblemSet4.pdf (2 pages, 141211 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
