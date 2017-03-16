@@ -153,7 +153,8 @@ $u^2$, otherwise
 \end{tabular}
 \right \}\\$
 
-\section{Q4}
+\section*{Q4}
+
 
 
 This problem is basically the same as the inventory management considering the demand as a random variable following an unknown distribution. It is a case with imperfect state information, in which the distribution of demand will be either $F_1$ or $F_2$. The probability that the demand follows $F_1$ is updated at each period $k$ after observing the realization of the demand. That will effect the way the expectation of the demand is computed.\\
@@ -179,5 +180,21 @@ $g_k(x_k,u_k,w_k)=cu_k+h\max\{0,w_k-x_k-u_k\}+p\max\{0,x_k+u_k-w_k\}$, where $c,
 \underline{DP algorithm:}\\
 
 $J_N(x_N)=0$\\
-$J_k(x_k)=\underset{u_k\geq 0}{\min}\mathbb{E}\left[\right]$
+$J_k(x_k)=\underset{u_k\geq 0}{\min}\mathbb{E}\left[cu_k+h\max\{0,w_k-x_k-u_k\}+p\max\{0,x_k+u_k-w_k\}+J_{k+1}(x_{k+1})\right]$\\
+
+In order to solve it we can introduce the variable $y_k=x_k+u_k$, and the we have \\
+$J_k(y_k)=\underset{u_k\geq x_k}{\min}G_k(y_k)-cx_k$, where $$G_k(y_k)=cy+h\mathbb{E}[\max\{0,w_k-y_k\}]+p\mathbb{E}[\max\{0,y_k-w_k\}]+\mathbb{E}[J_{k+1}(y_k-w_k)].$$
+Now, since $w_k$ is drawn from $F_1$ with probability $q_k$ and from $F_2$ with probability $F_2$ we can apply the law of total probabilities, leading to\\
+\begin{align*}
+G(y_k)=cy_k+q_k(h\mathbb{E}_{w_k|w\sim F_1}[\max\{0,w_k-y_k\}]+p\mathbb{E}_{w_k|w\sim F_1}[\max\{0,y_k-w_k\}]+\mathbb{E}_{w_k|w\sim F_1}[J_{k+1}(y_k-w_k)])+\\
++(1-q_k)(h\mathbb{E}_{w_k|w\sim F_2}[\max\{0,w_k-y_k\}]+p\mathbb{E}_{w_k|w\sim F_2}[\max\{0,y_k-w_k\}]+\mathbb{E}_{w_k|w\sim F_2}[J_{k+1}(y_k-w_k)]).
+\end{align*}
+We saw in class that $cy_k+h\mathbb{E}_{w_k|w\sim F_i}[\max\{0,w_k-y_k\}]+p\mathbb{E}_{w_k|w\sim F_i}[\max\{0,y_k-w_k\}]+\mathbb{E}_{w_k|w\sim F_i}[J_{k+1}(y_k-w_k)]$ is convex, since we have a sum of convex, our $G(y_k)$ will also be convex. So, there exists a $S_k$ that will represent the optimal stock we seek at period $k$. However, $S_k$ could be smaller than $x_k$, so it would not be reachable (in which case we would not by stock). Then, the policy will be
+\begin{equation*}
+\mu_k^*(x_k)=\left\{\begin{array}{ll}
+S_k-x_k & \text{if } S_k>x_k\\
+0 & \text{otherwise.}
+\end{array}\right.
+\end{equation*}  
+
 \end{document}
