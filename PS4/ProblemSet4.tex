@@ -185,18 +185,26 @@ $$u_k^* = (R_k + B_k'K_{k+1}B_k)^{-1}B_k'K_{k+1}(A_kx_k + E[w_k|y_k]) + \alpha_k
 Where $\alpha_k = B_k'b_{k+1}(y_{k+1})$
 \newpage
 \section*{Q2}
+\textbf{(i)}\\
 
-(ii)\\
-\begin{center}
-	\begin{figure}[h]\small
-		\centering
-		\includegraphics[height=8cm,width=10cm, page=1]{figures}
-	\end{figure}
-\end{center}
+Controllability is related to the stability of the system. It allows that the eigenvalues of $A + BL$ could have magnitude less than 1, and then the closed loop system is stable. It also is an important factor for determining the convergence rate of the system. Observability is an important condition for making K merely positive definite. Thus, controllability and observability allow K to satisfy the Algebraic Riccati Equation and guarantee uniqueness of the optimal control.\\
+
+\textbf{(ii, iii, iv, v)}\\
 
 \textbf{Python Code:}\\
 
 \pythonexternal{code.py}
+
+\begin{center}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[height=7cm,width=8cm, page=1]{figures}
+		\includegraphics[height=7cm,width=8cm, page=2]{figures}
+		\includegraphics[height=7cm,width=8cm, page=3]{figures}
+		\includegraphics[height=7cm,width=8cm, page=4]{figures}
+	\end{figure}
+\end{center}
+
 \newpage
 \section*{Q3}
 \textbf{Asset selling w/offer estimation}\\
