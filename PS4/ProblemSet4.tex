@@ -2,8 +2,6 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 
-
-
 \usepackage{geometry}
 \geometry{
 	a4paper,
@@ -24,7 +22,6 @@
 \usepackage{subfigure}
 \usepackage{dsfont}
 \usepackage{bbm}
-
 %\lstdefinestyle{myCustomMatlabStyle}{
 %	language=Matlab,
 %	numbers=left,
@@ -51,6 +48,55 @@
 \usepackage{dsfont}
 \usepackage{bbm}
 \usepackage{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\newcommand\pythonstyle{\lstset{
+		language=Python,
+		%basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+		breaklines=true,% automatic line breaking
+		basicstyle=\small,% basic font style 
+		numbers=left,% display line numbers on the left side 
+		numberstyle=\scriptsize,% use small line numbers 
+		numbersep=10pt,% space between line numbers and code 
+		tabsize=3,% sizes of tabs 
+		showstringspaces=false,% do not replace spaces in strings by a certain character 
+		captionpos=b,% positioning of the caption below 
+		breaklines=true,% automatic line breaking 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+		\pythonstyle
+		\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
 
 \lstdefinestyle{myCustomMatlabStyle2}{% setup listings 
 	language=R,% set programming language 
@@ -93,7 +139,7 @@
 \author{Roger Garriga Calleja, José Fernando Moreno Gutiérrez, David Rosenfeld, Katrina Walker}
 \date{\today}
 \maketitle
-\section{Problem 1 - linear-quadratic problem with forecasts}
+\section*{Q1}
 
 We are given a linear-quadratic problem with perfect state information but with a forecast. We first set up the primitives of the system:\\
 $x_k$: the state in period k\\
@@ -133,6 +179,19 @@ $$u_k^* = (R_k + B_k'K_{k+1}B_k)^{-1}B_k'K_{k+1}(A_kx_k + E[w_k|y_k]) + \alpha_k
 Where $\alpha_k = B_k'b_{k+1}(y_{k+1})$
 
 \section*{Q2}
+
+(ii)\\
+\begin{center}
+	\begin{figure}[h]\small
+		\centering
+		\includegraphics[height=8cm,width=10cm, page=1]{figures}
+	\end{figure}
+\end{center}
+
+\textbf{Python Code:}\\
+
+\pythonexternal{code.py}
+
 \section*{Q3}
 \textbf{Asset selling w/offer estimation}\\
 \\
